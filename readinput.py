@@ -9,7 +9,7 @@ def read_doc(file_path):
 		doc= Document(file_path)
 		fulltxt=[]
 		for para in doc.paragraphs:
-			fulltxt.append(para.text)
+			fulltxt.append(para.text.strip())
 		return fulltxt
 
 '''
