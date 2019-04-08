@@ -1,7 +1,7 @@
 '''
 Script to read the input from respective files
 '''
-from docx import Document
+#from docx import Document
 import xlrd
 import os
 
@@ -37,6 +37,34 @@ def getpagelist(file_ext,path=None):
 
 	return page_list
 	
+
+def  read_xl(file_path):
+	# give location of file
+	loc = (file_path)
+	
+	# to open the workbook
+	wb = xlrd.open_workbook(loc)
+	sheet = wb.sheet_by_index(0)
+	
+	process_size = []
+	blocks_size = []
+	"""for row in range(sheet.nrows):
+		# print (sheet.row_values(row))"""
+	for size in sheet.row_values(0):
+		if type(size) is float:
+			process_size.append(int(size))
+			
+	for size in sheet.row_values(1):
+		if type(size) is float:
+			blocks_size.append(int(size))
+	# print(process_size, blocks_size)
+	return process_size, blocks_size
+	
+
+
+
+
+
 
 
 
