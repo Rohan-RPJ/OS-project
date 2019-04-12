@@ -1,10 +1,12 @@
 '''
 Script to read the input from respective files
 '''
+
 try:
 	from docx import Document
 except Exception:
 	pass
+
 import xlrd
 import os
 
@@ -14,8 +16,6 @@ def read_doc(file_path):
 		for para in doc.paragraphs:
 			fulltxt.append(para.text.strip())
 		return fulltxt
-
-print(read_doc(os.path.join(os.getcwd(),'MINI PROJECT INPUT FILES',"memory allocation strategies.docx")))
 
 '''
 Returns a list containing page number from the file with extension file_ext
@@ -35,6 +35,7 @@ def getpagelist(file_ext,path=None):
 		pagefile_txt=read_doc(pagefile_path)
 	elif file_ext.startswith("xls"):
 		return read_xl1(pagefile_path)
+
 	else:
 		pagefile_txt=["0"]
 	
@@ -42,8 +43,6 @@ def getpagelist(file_ext,path=None):
 
 	return page_list
 	
-
-
 def  read_xl(file_path):
 	# give location of file
 	loc = (file_path)
